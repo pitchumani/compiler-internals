@@ -5,4 +5,5 @@ and computer architectures.
 * [GCC](gcc/README.md)
 * [LLVM](llvm/README.md)
 * [Computer Architecture](computer-architecture.md)
+* [Questions and Answers](QnA/README.md)
 
