@@ -1,4 +1,103 @@
 # Performance, Code Size & Library Improvements
+
+## Cycles Per Instruction (CPI) and Instructions Per Cycle (IPC)
+For processor performance analysis, Cycles Per Instruction (CPI) and Instructions
+Per Cycle (IPC) are reciprocal metrics that describe how efficiently a CPU executes
+instructions. Analysts use these metrics to pinpoint inefficiencies in software and
+architecture. A high IPC or low CPI indicates efficient performance, while a low
+IPC or high CPI signifies bottlenecks.
+
+### What factors affect CPI and IPC?
+The values of CPI and IPC are not static but vary based on the interaction between
+hardware and software. Key factors include:
+* **Instruction mix:** The proportion of different types of instructions (e.g., integer,
+floating-point, memory access) affects the average CPI and IPC, as some instructions
+require more cycles to execute than others.
+* **Pipeline hazards:** Modern processors use pipelines to execute multiple instructions
+in parallel. Hazards like data dependencies or control hazards (from branches) can cause
+the pipeline to stall, increasing CPI and decreasing IPC.
+* **Memory hierarchy:** Cache misses force the CPU to retrieve data from slower main
+memory, causing significant stalls. The resulting latency increases CPI.
+* **Architectural design:** A processor's microarchitecture, such as the number of
+execution units and the effectiveness of branch prediction, directly influences its
+potential for parallelism and thus its maximum IPC.
+* **Instruction-level parallelism (ILP):** A program's ability to expose independent
+instructions that can be executed in parallel is a primary driver of high IPC in
+superscalar processors.
+
+### How to use CPI and IPC for performance analysis
+Instead of relying on a single clock frequency, analysts use CPI and IPC to get a deeper
+understanding of processor performance for a given workload.
+* **Overall performance:** The total execution time of a program can be expressed as:
+```
+Execution Time = (Instructions / Program) * CPI * Clock Cycle Time.
+```
+This is equivalent to:
+```
+Execution Time = (Instructions / Program) / (IPC * Clock Rate).
+```
+
+* **Identifying bottlenecks:** Monitoring CPI and IPC during program execution can reveal
+bottlenecks. For example, a sudden drop in IPC could indicate memory-access issues or
+pipeline stalls caused by a specific section of code.
+* **Comparing different CPUs:** While comparing raw IPC or CPI between different processors
+is not always meaningful, it can be effective when running the same binary on different
+generations of the same architecture. For example, a higher IPC for the same program on
+a newer Intel Core i7 suggests generational improvements in efficiency.
+
+## Valgrind
+Valgrind is a powerful instrumentation framework that includes several tools useful for
+performance analysis, primarily through detailed profiling. While it's commonly known for
+memory error detection (Memcheck), its profiling tools provide insights into CPU and cache
+usage, helping identify performance bottlenecks.
+
+Here's how Valgrind is used for performance analysis:
+### Callgrind
+* Purpose: This tool generates a call graph of your program, counting function calls,
+the number of CPU instructions executed within each call, and memory accesses.
+* Usage:
+```
+valgrind --tool=callgrind ./your_program [program_arguments]
+```
+* Analysis: The output can be visualized with tools like KCachegrind, providing a
+graphical representation of the call hierarchy and identifying functions consuming
+the most CPU cycles and memory. This helps pinpoint computationally expensive sections
+of your code.
+### Cachegrind:
+* Purpose: Cachegrind simulates the L1/L2 caches and counts cache misses and hits. This
+helps in understanding how efficiently your program utilizes the CPU cache. 
+* Usage:
+```
+valgrind --tool=cachegrind ./your_program [program_arguments]
+
+```
+* Analysis: By identifying functions with high cache miss rates, you can optimize data
+access patterns to improve cache locality and overall performance. Callgrind includes
+cache simulation features, making it a comprehensive option for both CPU and cache profiling.
+
+### Massif:
+* Purpose: Massif is a heap memory profiler that provides detailed information about
+heap memory usage over time. This helps in identifying memory-intensive parts of your
+program and potential memory leaks that might impact performance.
+* Usage:
+```
+valgrind --tool=massif ./your_program [program_arguments]
+```
+* Analysis: Massif generates a graph of heap usage, showing allocations and deallocations.
+This can reveal inefficient memory management strategies or unexpected memory growth that
+could lead to performance degradation.
+
+## General Considerations:
+* **Performance Overhead:** Valgrind instruments your program, which can significantly
+slow down execution (4 to 50 times slower). This overhead must be considered when
+interpreting results, as it can affect timing measurements.
+* **Debugging Information:** For optimal results, compile your program with debugging
+information enabled (-g flag in GCC/Clang) to allow Valgrind to provide precise source
+code locations for performance issues.
+* **Targeted Analysis:** Focus on specific areas of your code that are suspected
+performance bottlenecks rather than profiling the entire application, especially for
+large programs.
+
 ## 1. Performance Analysis
 ### Q1. You apply -O3 to a program and see a 20% slowdown. What might cause it?
 **A: Possible causes:**
