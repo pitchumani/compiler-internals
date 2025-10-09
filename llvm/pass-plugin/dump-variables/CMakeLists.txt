@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+#cmake_minimum_required(VERSION 4.0)
 project(llvm-passes)
 
 if(NOT DEFINED ENV{LLVM_HOME})
