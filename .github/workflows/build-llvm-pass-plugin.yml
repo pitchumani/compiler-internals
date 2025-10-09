@@ -15,12 +15,15 @@ jobs:
           sudo apt-get install -y llvm-17-dev clang-17
 
       - name: Create build directory
-        run: mkdir ./build
+        run: mkdir -p ./build
 
       - name: Build LLVM Pass Plugin
         working-directory: ./build
         env:
+          # Path to the installed LLVM 17 binaries and libraries
           LLVM_PATH: /usr/lib/llvm-17
+          DVAR_PASS_PLUGIN_DIR: ../llvm/pass-plugin/dump-variables
         run: |
-          cmake -DLT_LLVM_INSTALL_DIR=$LLVM_PATH ../llvm/pass-plugin/dump-variables
+          cmake -DLT_LLVM_INSTALL_DIR=$LLVM_PATH $DVAR_PASS_PLUGIN_DIR
+          make
           make
