@@ -1,6 +1,11 @@
 name: Build LLVM pass plugin
 on:
   workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch to run the workflow on'
+        required: true
+        default: 'main'
 
 jobs:
   build:
