@@ -1,0 +1,26 @@
+name: Build LLVM pass plugin
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install LLVM
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y llvm-17-dev clang-17
+
+      - name: Create build directory
+        run: mkdir ./build
+
+      - name: Build LLVM Pass Plugin
+        working-directory: ./build
+        env:
+          LLVM_PATH: /usr/lib/llvm-17
+        run: |
+          cmake -DLT_LLVM_INSTALL_DIR=$LLVM_PATH ../llvm/pass-plugin/dump-variables
+          make
