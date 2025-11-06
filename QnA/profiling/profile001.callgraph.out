@@ -1,0 +1,423 @@
+positions: instr line
+events: cpu(ms)
+
+ob=(1) /Users/pitchumani/code/compiler-internals/QnA/profiling/sample.out
+fl=
+fn=(1) std::__1::__math::sqrt[abi:ne200100]
+0x10f0387b0 0 160
+
+ob=(1)
+fl=
+fn=(2) expensive_calculation_2
+-46 0 20
+
+ob=(2) /usr/lib/libc++.1.dylib
+fl=
+fn=
+0x7ff80402ae78 0 20
+
+ob=(1)
+fl=
+fn=(2)
+0x10f038767 0 10
++22 0 10
+
+ob=(1)
+fl=
+fn=(1)
++35 0 10
++4 0 10
+
+ob=(1)
+fl=
+fn=(3) std::__1::allocator::construct[abi:ne200100]
++2236 0 10
+
+ob=(1)
+fl=
+fn=(4) std::__1::operator!=[abi:ne200100]
++1072 0 10
+
+ob=(1)
+fl=
+fn=(5) expensive_calculation_1()::$_0::operator()
++73 0 10
+
+ob=(3) /usr/lib/system/libsystem_c.dylib
+fl=
+fn=
+0x7ff803fac7ad 0 10
+
+ob=(2)
+fl=
+fn=
++517819 0 10
++7 0 10
+
+ob=(4) /usr/lib/system/libsystem_kernel.dylib
+fl=
+fn=
++597995 0 10
+
+ob=(1)
+fl=
+fn=(6) expensive_calculation_1
+0x10f038569 0 0
+cfl=
+cfn=(7) std::__1::vector::vector[abi:ne200100]
+calls=0 0x10f03860c 0
+* * 10
++39 0 0
+cfl=
+cfn=(8) std::__1::generate[abi:ne200100]
+calls=0 +226 0
+* * 20
+cfl=
+cfn=(9)  [4/6]
+calls=0 -4546856298 0
+* * 10
++45 0 0
+cfl=
+cfn=(10) std::__1::sort[abi:ne200100]
+calls=0 +396 0
+* * 40
++11 0 0
+cfl=
+cfn=(11) std::__1::vector::~vector[abi:ne200100]
+calls=0 +391 0
+* * 10
+
+ob=(1)
+fl=
+fn=(7)
++68 0 0
+cfl=
+cfn=(7)
+calls=0 +760 0
+* * 10
+
+ob=(1)
+fl=
+fn=(8)
++63 0 0
+cfl=
+cfn=(5)
+calls=0 +3780 0
+* * 10
+cfl=
+cfn=(9)
+calls=0 0x7ff803d59370 0
+* * 10
+
+ob=(1)
+fl=
+fn=(10)
++209 0 0
+cfl=
+cfn=(10)
+calls=0 +3957 0
+* * 40
+
+ob=(1)
+fl=
+fn=(11)
++40 0 0
+cfl=
+cfn=(11)
+calls=0 +3271 0
+* * 10
+
+ob=(1)
+fl=
+fn=(2)
++51 0 0
+cfl=
+cfn=(12)  [6/6]
+calls=0 0x7ff804135332 0
+* * 140
+cfl=
+cfn=(9)
+calls=0 -4546856773 0
+* * 30
+
+ob=(1)
+fl=
+fn=(13) main
++111 0 0
+cfl=
+cfn=(6)
+calls=0 -487 0
+* * 20
+cfl=
+cfn=(6)
+calls=0 -442 0
+* * 20
++5 0 0
+cfl=
+cfn=(2)
+calls=0 -111 0
+* * 170
+cfl=
+cfn=(9)
+calls=0 -4546856935 0
+* * 50
++5 0 0
+cfl=
+cfn=(6)
+calls=0 -558 0
+* * 20
+cfl=
+cfn=(6)
+calls=0 -642 0
+* * 10
+cfl=
+cfn=(6)
+calls=0 -603 0
+* * 10
+cfl=
+cfn=(6)
+calls=0 -547 0
+* * 10
+
+ob=(1)
+fl=
+fn=(7)
++208 0 0
+cfl=
+cfn=(14) std::__1::vector::__construct_at_end
+calls=0 +627 0
+* * 10
+
+ob=(1)
+fl=
+fn=(14)
++419 0 0
+cfl=
+cfn=(9)
+calls=0 -4546857153 0
+* * 10
+
+ob=(1)
+fl=
+fn=(15) std::__1::vector::__destroy_vector::operator()[abi:ne200100]
++1758 0 0
+cfl=
+cfn=(16) std::__1::allocator_traits::deallocate[abi:ne200100]
+calls=0 +1889 0
+* * 10
+
+ob=(1)
+fl=
+fn=(16)
++131 0 0
+cfl=
+cfn=(17) std::__1::allocator::deallocate[abi:ne200100]
+calls=0 +436 0
+* * 10
+
+ob=(1)
+fl=
+fn=(17)
++305 0 0
+cfl=
+cfn=(18) std::__1::__libcpp_deallocate[abi:ne200100]
+calls=0 +402 0
+* * 10
+
+ob=(1)
+fl=
+fn=(18)
++97 0 0
+cfl=
+cfn=(19) std::__1::__libcpp_operator_delete[abi:ne200100]
+calls=0 +183 0
+* * 10
+
+ob=(1)
+fl=
+fn=(19)
++86 0 0
+cfl=
+cfn=(20)  [5/6]
+calls=0 0x7ff803f1d34d 0
+* * 10
+
+ob=(1)
+fl=
+fn=(11)
++55 0 0
+cfl=
+cfn=(15)
+calls=0 -619 0
+* * 10
+
+ob=(1)
+fl=
+fn=(5)
++237 0 0
+cfl=
+cfn=(12)
+calls=0 0x7ff804135332 0
+* * 10
+
+ob=(1)
+fl=
+fn=(10)
++240 0 0
+cfl=
+cfn=(21) std::__1::__sort_impl[abi:ne200100]
+calls=0 +358 0
+* * 40
+
+ob=(1)
+fl=
+fn=(21)
++118 0 0
+cfl=
+cfn=(22) std::__1::__sort_dispatch[abi:ne200100]
+calls=0 +244 0
+* * 40
+
+ob=(1)
+fl=
+fn=(22)
++126 0 0
+cfl=
+cfn=(23)  [1/6]
+calls=0 0x7ff804026db0 0
+* * 30
+cfl=
+cfn=(23)
+calls=0 0x7ff804026d49 0
+* * 10
+
+ob=
+fl=
+fn=
+0x7ff7b0ec6e1f 0 0
+cfl=
+cfn=(23)
+calls=0 0x7ff80402ae78 0
+* * 10
++96 0 0
+cfl=
+cfn=(23)
+calls=0 +1393967184 0
+* * 10
++1391003312 0 0
+cfl=
+cfn=(13)
+calls=0 0x10f0387eb 0
+* * 220
+cfl=
+cfn=(13)
+calls=0 0x10f0387f0 0
+* * 50
+cfl=
+cfn=(13)
+calls=0 0x10f0387e6 0
+* * 40
++7745 0 0
+cfl=
+cfn=(5)
+calls=0 0x10f0394d9 0
+* * 10
+
+ob=(5) /usr/lib/system/libsystem_malloc.dylib
+fl=
+fn=
++1851357 0 0
+cfl=
+cfn=(9)
+calls=0 -140703192945521 0
+* * 10
+
+ob=(2)
+fl=
+fn=
++1087996 0 0
+cfl=
+cfn=(9)
+calls=0 -1392862510 0
+* * 10
+cfl=
+cfn=(9)
+calls=0 -1392862414 0
+* * 10
+cfl=
+cfn=(9)
+calls=0 +28005179242 0
+* * 10
+cfl=
+cfn=(9)
+calls=0 0xa5a8e960f59c3e76 0
+* * 10
++103 0 0
+cfl=
+cfn=(23)
+calls=0 * 0
+* * 30
+
+ob=(6) /usr/lib/system/libsystem_platform.dylib
+fl=
+fn=
++1107330 0 0
+cfl=
+cfn=(1)
+calls=0 0x10f0387b0 0
+* * 130
+cfl=
+cfn=(1)
+calls=0 0x10f0387a4 0
+* * 10
+cfl=
+cfn=(24)  [2/6]
+calls=0 -501251 0
+* * 10
+
+ob=
+fl=
+fn=
++28002983813 0 0
+cfl=
+cfn=(23)
+calls=0 -1090746 0
+* * 10
+0xa5a8e960f59c3e76 0 0
+cfl=
+cfn=(23)
+calls=0 -28004074575 0
+* * 10
+0xffffffffffffffff 0 0
+cfl=
+cfn=(1)
+calls=0 0x10f0387b0 0
+* * 30
+cfl=
+cfn=(2)
+calls=0 0x10f038782 0
+* * 20
+cfl=
+cfn=(2)
+calls=0 0x10f038767 0
+* * 10
+cfl=
+cfn=(2)
+calls=0 0x10f03877d 0
+* * 10
+cfl=
+cfn=(1)
+calls=0 0x10f0387a0 0
+* * 10
+cfl=
+cfn=(3)
+calls=0 0x10f039060 0
+* * 10
+cfl=
+cfn=(4)
+calls=0 0x10f039490 0
+* * 10
+cfl=
+cfn=(25)  [3/6]
+calls=0 0x7ff8040bce5a 0
+* * 10
