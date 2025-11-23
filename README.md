@@ -6,4 +6,4 @@ and computer architectures.
 * [LLVM](llvm/README.md)
 * [Computer Architecture](computer-architecture.md)
 * [Questions and Answers](QnA/README.md)
-
+* [Debugging Info](debuginfo.md)
